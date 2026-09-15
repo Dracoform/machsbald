@@ -1,0 +1,27 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment / configuration
+# - Database config must stay out of version control (external/configurable).
+.env
+config.php
+*.local
+*.cfg.php
+
+# Logs
+*.log
+/logs/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Misc / coverage
+.phpunit.cache/
+.coverage
+coverage/
