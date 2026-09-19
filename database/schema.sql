@@ -14,8 +14,8 @@ CREATE TABLE tasks (
     due_date DATE NULL,
     details TEXT NULL,
     is_done TINYINT(1) NOT NULL DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
     PRIMARY KEY (id),
     INDEX idx_tasks_category_done (category, is_done, due_date, id),
     CONSTRAINT chk_tasks_text CHECK (CHAR_LENGTH(TRIM(text)) > 0),
@@ -30,11 +30,11 @@ CREATE TABLE subtasks (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     task_id BIGINT UNSIGNED NOT NULL,
     text VARCHAR(1000) NOT NULL,
-    position INT UNSIGNED NOT NULL,
+    sort_order INT UNSIGNED NOT NULL,
     is_done TINYINT(1) NOT NULL DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     PRIMARY KEY (id),
-    INDEX idx_subtasks_display (task_id, is_done, position, id),
+    INDEX idx_subtasks_display (task_id, is_done, sort_order, id),
     CONSTRAINT fk_subtasks_task FOREIGN KEY (task_id)
         REFERENCES tasks (id) ON DELETE CASCADE,
     CONSTRAINT chk_subtasks_text CHECK (CHAR_LENGTH(TRIM(text)) > 0),
@@ -48,4 +48,4 @@ CREATE TABLE subtasks (
 -- diese_woche -> Diese Woche
 -- irgendwann -> Irgendwann
 -- wenn_mir_langweilig_ist -> Wenn mir langweilig ist
--- Display checklist items with ORDER BY is_done ASC, position ASC, id ASC.
+-- Display checklist items with ORDER BY is_done ASC, sort_order ASC, id ASC.

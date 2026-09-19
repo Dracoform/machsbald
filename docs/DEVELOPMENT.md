@@ -25,7 +25,7 @@ their exact German labels are listed in `database/schema.sql`. `eigentlich_geste
 is the database default. A task in `fixes_datum` must have `due_date`; other
 categories must not have one. Subtasks have no category or date columns and
 therefore inherit urgency from their task. Deleting a task deletes its subtasks.
-For display, sort subtasks by `is_done ASC, position ASC, id ASC`; this places
+For display, sort subtasks by `is_done ASC, sort_order ASC, id ASC`; this places
 completed items below open ones without altering their stored order.
 
 ## Configuration
