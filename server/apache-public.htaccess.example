@@ -1,0 +1,8 @@
+# Copy to public/.htaccess on the server after replacing AuthUserFile.
+# Keep the password file outside the document root.
+Options -Indexes
+DirectoryIndex index.php
+AuthType Basic
+AuthName "Machsbald"
+AuthUserFile /absolute/path/outside/document-root/.htpasswd
+Require valid-user

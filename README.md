@@ -6,7 +6,8 @@ Entering a task is nearly frictionless: type text, press Enter, done.
 
 ## Status
 
-Phase 0 — repository bootstrap complete. Application not yet implemented.
+Phase 1 — foundation: schema, configuration and webserver layout. The task UI
+is not implemented yet.
 
 ## Scope
 
@@ -16,6 +17,8 @@ non-goals and technical constraints.
 
 ## Development
 
-- Stack target: PHP, MySQL, HTML5, CSS, modern JavaScript (`fetch`/JSON).
+- Stack target: PHP 8.5, MySQL 8.4, HTML5, CSS, modern JavaScript (`fetch`/JSON).
 - Database configuration is external/configurable; no Netcup-specific paths,
   hosts or credentials are baked into the code.
+- See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for local setup and
+  [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for deployment.

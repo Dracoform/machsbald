@@ -1,0 +1,3 @@
+# Defense in depth if the project root is accidentally exposed as a document root.
+# The configured document root must be public/.
+Require all denied
